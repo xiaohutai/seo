@@ -51,14 +51,6 @@
 
 {#=== FIELDSET ============================================================================#}
 
-    {# Focus keyword #}
-    <fieldset class="form-group">
-        <label for="seofields-focus-keyword" class="col-sm-2 main control-label">{{__("Focus Keyword")}}:</label>
-        <div class="col-sm-10">
-            <input class="form-control" id="seofields-focus-keyword" maxlength="255" type="text" value="{{ seovalues.focuskeyword|default('') }}">
-        </div>
-    </fieldset>
-
     {# Seo Title #}
     <fieldset class="form-group">
         <label for="seofields-title" class="col-sm-2 main control-label">{{__("SEO Title")}}:</label>
@@ -104,7 +96,7 @@
     {# Seo Google Snippet Preview #}
     <fieldset class="form-group">
     <div class="col-sm-12 snippet-preview">
-        <label class="main control-label">{{__("Google snippet preview")}}:</label>
+        <label class="main control-label"><h3>{{__("Google snippet preview")}}:</h3></label>
         <div id="seosnippet">
             <span class="title">{{__("Bolt SEO Extension")}}</span>
             <cite>...</cite>
@@ -114,9 +106,21 @@
     </div>
     </fieldset>
 
-    <hr>
-        <div id="output">output goes here</div>
-    <hr>
+    {# Focus keyword #}
+    <fieldset class="form-group">
+        <label for="seofields-focus-keyword" class="col-sm-3 main control-label">{{__("Focus Keyword")}}:</label>
+        <div class="col-sm-9">
+            <input class="form-control narrow" id="seofields-focus-keyword" maxlength="40" type="text" value="{{ seovalues.focuskeyword|default('') }}">
+        </div>
+    </fieldset>
+
+    {# Yoast SEO Analysis output #}
+    <fieldset class="form-group">
+    <div class="col-sm-12 snippet-preview">
+        <label class="main control-label"><h3>{{__("SEO analysis")}}:</h3></label>
+        <div id="output"></div>
+    </div>
+    </fieldset>
 
     {% if seoconfig.allowed.shortlink|default(true) %}
     {# Shortlink #}
